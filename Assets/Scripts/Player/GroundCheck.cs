@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// Ú’n”»’è
+/// Ú’n”»’èˆ—
 /// </summary>
 public class GroundCheck : MonoBehaviour
 {
