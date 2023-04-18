@@ -1,8 +1,8 @@
-//リフトの制御
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// リフトの制御
+/// </summary>
 public class MoveLift : MonoBehaviour
 {
     [SerializeField] private bool XY = true;
