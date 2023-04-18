@@ -1,7 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// ƒ[ƒv‚Ìˆ—
+/// </summary>
 public class Warp : MonoBehaviour
 {
     //GameObjectŒ^‚ğ•Ï”exit‚ÅéŒ¾‚µ‚Ü‚·B
