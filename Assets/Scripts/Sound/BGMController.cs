@@ -13,16 +13,16 @@ public class BGMController : MonoBehaviour
 
     private void Update()
     {
-        CatchVolume();
-        Setting();
+        GetVolume();
+        SetVolume();
     }
 
-    private void CatchVolume()
+    private void GetVolume()
     {
         volume = BGMInfomation.VolumeCheck();
     }
 
-    private void Setting()
+    private void SetVolume()
     {
         BGM.volume = volume;
     }
