@@ -25,21 +25,35 @@ public class MoveLift : MonoBehaviour
         if (!XY) LeftRight();
     }
 
+    /// <summary>
+    /// 上下に動く処理
+    /// </summary>
     private void UpDown()
     {
+        // リフトの位置が基準より上にあればfalse
         if (StartPosition.y + 0.7f < CurrentPosition.y) Reverse = false;
+        // リフトの位置が基準より下にあればtrue
         if (StartPosition.y + -0.7f > CurrentPosition.y) Reverse = true;
 
+        // 下にあれば上に力を加える
         if (Reverse) transform.Translate(new Vector2(0.0f, 1.0f) * Time.deltaTime);
+        // 上にあれば下に力を加える
         if (!Reverse) transform.Translate(new Vector2(0.0f, -1.0f) * Time.deltaTime);
     }
 
+    /// <summary>
+    /// 左右に動く処理
+    /// </summary>
     private void LeftRight()
     {
+        // リフトの位置が基準より左にあればfalse
         if (StartPosition.x + 0.7f < CurrentPosition.x) Reverse = false;
+        // リフトの位置が基準より右にあればtrue
         if (StartPosition.x + -0.7f > CurrentPosition.x) Reverse = true;
 
+        // 右にあれば左に力を加える
         if (Reverse) transform.Translate(new Vector2(1.0f, 0.0f) * Time.deltaTime);
+        // 左にあれば右に力を加える
         if (!Reverse) transform.Translate(new Vector2(-1.0f, 0.0f) * Time.deltaTime);
     }
 

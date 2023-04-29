@@ -2198,6 +2198,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StageClear_UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3484216749811162012, guid: 880f0b3710a38f44ea77d048330e8f7f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3484216749811162013, guid: 880f0b3710a38f44ea77d048330e8f7f, type: 3}
       propertyPath: m_RootOrder
       value: 8

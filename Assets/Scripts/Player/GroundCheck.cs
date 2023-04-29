@@ -7,7 +7,7 @@ public class GroundCheck : MonoBehaviour
 {
     private bool isGround;
 
-    //”»’èŒ‹‰Ê‚ð•Ô‚·
+    // ”»’èŒ‹‰Ê‚ð•Ô‚·
     public bool IsGround()
     {
         return isGround;
