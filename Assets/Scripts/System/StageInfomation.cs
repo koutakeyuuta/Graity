@@ -37,30 +37,6 @@ public class StageInfomation : MonoBehaviour
             }
         }
     }
-    
-    /// <summary>
-    /// デバッグ用のメソッド
-    /// </summary>
-    //public static void AllPrint()
-    //{
-    //    for(int count = 0; count<stageClear.Length; count++)
-    //    {
-    //        print(stageClear[count]);
-    //    }
-
-    //    for(int count = 0;count<stageBestTime.Length; count++)
-    //    {
-    //        print(stageBestTime[count]);
-    //    }
-
-    //    for(int stageCount = 0; stageCount < collectFurits.GetLength(0);stageCount++)
-    //    {
-    //        for(int fruitsCount = 0; fruitsCount < collectFurits.GetLength(1); fruitsCount++)
-    //        {
-    //            print(collectFurits[stageCount, fruitsCount]);
-    //        }
-    //    }
-    //}
 
     /// <summary>
     /// ステージの情報をすべて初期化する。

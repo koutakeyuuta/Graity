@@ -33,10 +33,10 @@ public class FruitsCollect : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //プレイヤーと接触した場合
+        // プレイヤーと接触した場合
         if (collision.tag == "Player")
         {
-            //Collectアニメーションに遷移する
+            // Collectアニメーションに遷移する
             animator.SetTrigger("Collect");
             destroyFlag = true;
             fruitsAudio.PlayOneShot(CollectSound);

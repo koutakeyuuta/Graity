@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// タイトル画面のコマンドを制御するクラス
+/// タイトル画面のコマンドを制御
 /// </summary>
 public class TitleCommand : MonoBehaviour
 {

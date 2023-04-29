@@ -13,7 +13,7 @@ public class GroundCheck : MonoBehaviour
         return isGround;
     }
 
-    //Ú’n”»’è
+    // Ú’n”»’è
     private void OnTriggerEnter2D(Collider2D collision)
     {
             isGround = true;

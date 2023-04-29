@@ -1,5 +1,8 @@
 using UnityEngine;
 
+/// <summary>
+/// 遊び方ポップアップの制御
+/// </summary>
 public class PlayManualWindowManager : MonoBehaviour
 {
     [Header("マニュアル"), SerializeField] private GameObject[] Manuals;
