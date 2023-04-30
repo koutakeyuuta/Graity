@@ -2553,6 +2553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goal
       objectReference: {fileID: 0}
+    - target: {fileID: 5809808245403962423, guid: d6ee8f1d6df68de4ea13984730f8a37e, type: 3}
+      propertyPath: m_TagString
+      value: Goal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6ee8f1d6df68de4ea13984730f8a37e, type: 3}
 --- !u!1001 &8881411535524139533
@@ -2562,6 +2566,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5117581117227522419, guid: 9c267f43f6a67334c86e2b402f964f88, type: 3}
+      propertyPath: colliderOffset.y
+      value: -0.1273639
+      objectReference: {fileID: 0}
     - target: {fileID: 8881411535583488449, guid: 9c267f43f6a67334c86e2b402f964f88, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2572,11 +2580,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8881411535583488450, guid: 9c267f43f6a67334c86e2b402f964f88, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.24
+      value: 6.6
       objectReference: {fileID: 0}
     - target: {fileID: 8881411535583488450, guid: 9c267f43f6a67334c86e2b402f964f88, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.76
+      value: 3.44
       objectReference: {fileID: 0}
     - target: {fileID: 8881411535583488450, guid: 9c267f43f6a67334c86e2b402f964f88, type: 3}
       propertyPath: m_LocalPosition.z

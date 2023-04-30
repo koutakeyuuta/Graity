@@ -46,7 +46,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.6328262}
+  m_Offset: {x: 0, y: -0.655}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -231,7 +231,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  playStart: 0
+  colliderOffset: {x: 0, y: -0.1273639}
+  groundCheckColliderOffset: {x: 0.8660666, y: 1.025272}
   groundCheck: {fileID: 8881411535503291830}
+  destoryTime: 0.3
 --- !u!114 &6145841336633528151
 MonoBehaviour:
   m_ObjectHideFlags: 0

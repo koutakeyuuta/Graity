@@ -5,6 +5,7 @@ using UnityEngine;
 /// </summary>
 public class GroundCheck : MonoBehaviour
 {
+    // Ú’n”»’èŒ‹‰Ê
     private bool isGround;
 
     // ”»’èŒ‹‰Ê‚ğ•Ô‚·
