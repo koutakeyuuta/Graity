@@ -1,30 +1,33 @@
 using UnityEngine;
 
 /// <summary>
-/// 接地判定処理
+/// 接地判定を処理するクラス
 /// </summary>
 public class GroundCheck : MonoBehaviour
 {
-    // 接地判定結果
-    private bool isGround;
+    // 接地状態
+    private bool onGround;
 
-    // 判定結果を返す
+    /// <summary>
+    /// 接地状態を返す
+    /// </summary>
+    /// <returns> 接地状態 </returns>
     public bool IsGround()
     {
-        return isGround;
+        return onGround;
     }
 
     // 接地判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
-            isGround = true;
+            onGround = true;
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
-            isGround = true;
+            onGround = true;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-            isGround = false;
+            onGround = false;
     }
 }

@@ -61,12 +61,12 @@ public class MoveLift : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player" && !XY)
         {
-            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            PlayerGetForce playerGetForce = collision.gameObject.GetComponent<PlayerGetForce>();
 
             float vect = 0;
             if (Reverse) vect = 1;
             if (!Reverse) vect = -1; 
-            playerController.TakeForce(new Vector2(50.0f * vect, 0.0f));
+            playerGetForce.GetForce(new Vector2(50.0f * vect, 0.0f));
             print(true);
         }
     }

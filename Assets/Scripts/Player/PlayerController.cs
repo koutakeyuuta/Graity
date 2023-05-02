@@ -15,8 +15,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector2 groundCheckColliderOffset;
     [Header("接地判定")]
     [SerializeField] private BoxCollider2D groundCheck;
+    [Header("出現から行動可能になるまでの時間")]
+    [SerializeField] private float appearTime;
     [Header("消滅までの時間")]
     [SerializeField] private float destoryTime;
+
+    // 接地してるか
+    private bool _onGround = false;
+    // 走っているか
+    private bool _isRunning = false;
+    // 落下しているか
+    private bool _isFalling = false;
+    // 消滅フラグ
+    private bool _doDestroy = false;
 
     // コンポーネント (pl = Player)
     // 物理演算
@@ -28,15 +39,24 @@ public class PlayerController : MonoBehaviour
     // アニメーター
     private Animator _plAnimator;
 
+    // スクリプト
+    // プレイヤーのアニメーションを制御するクラス
+    private PlayerAnimatorController _plAnimController;
+    // 接地判定を処理するクラス
+    private GroundCheck _plGroundCheck;
+
     private void Start()
     {
         _plRigidbody = GetComponent<Rigidbody2D>();
         _plSpriteRenderer = GetComponent<SpriteRenderer>();
         _plCollider = GetComponent<CapsuleCollider2D>();
         _plAnimator = GetComponent<Animator>();
+        _plAnimController = GetComponent<PlayerAnimatorController>();
 
         colliderOffset = _plCollider.offset;
         groundCheckColliderOffset = groundCheck.offset;
+
+        Invoke(nameof(Appear), appearTime);
     }
 
     private void FixedUpdate()
@@ -48,9 +68,6 @@ public class PlayerController : MonoBehaviour
             MoveHorizontal();
             //縦移動
             MoveVertical();
-
-            // アニメーターの落ちるパラメーターをセットする
-            _plAnimator.SetFloat("Fall", Mathf.Abs(_plRigidbody.velocity.y));
         }
     }
 
@@ -67,7 +84,7 @@ public class PlayerController : MonoBehaviour
             // キャラクター画像を右に向けるため、反転をオフにする
             _plSpriteRenderer.flipX = false;
             // 走るアニメーションを再生させる
-            _plAnimator.SetBool("Run", true);
+            _isRunning = true;
 
             return;
         }
@@ -79,7 +96,7 @@ public class PlayerController : MonoBehaviour
             // キャラクター画像を左に向けるため、反転させる
             _plSpriteRenderer.flipX = true;
             // 走るアニメーションを再生させる
-            _plAnimator.SetBool("Run", true);
+            _isRunning = true;
             
             return;
         }
@@ -88,7 +105,7 @@ public class PlayerController : MonoBehaviour
         // プレイヤーの横方向への力をゼロにする
         _plRigidbody.velocity = new Vector2(0, _plRigidbody.velocity.y);
         // 走るアニメーションの再生をやめる
-        _plAnimator.SetBool("Run", false);
+        _isRunning = false;
     }
 
 
@@ -121,7 +138,7 @@ public class PlayerController : MonoBehaviour
         //ゴールしたら消滅アニメーションを再生する
         if (collision.tag == "Goal")
         {
-            _plAnimator.SetTrigger("Goal");
+            _doDestroy = true;
             Invoke(nameof(Disapper), destoryTime);
         }
     }
@@ -129,14 +146,14 @@ public class PlayerController : MonoBehaviour
     /// <summary>
     /// プレイヤーの出現を制御するメソッド
     /// </summary>
-    public void Appear()
+    private void Appear()
     {
         // プレイ可能にする
         playStart = true;
         // フリーズの解除
         _plRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         // フリーズの解除後、すこし力を加えないと落ちてくれないので力を加える
-        _plRigidbody.velocity = new Vector2(0, -0.1f);
+        _plRigidbody.AddForce(new Vector2(0, -0.1f));
     }
 
     /// <summary>
@@ -147,12 +164,8 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /// <summary>
-    /// 受け取った力をプレイヤーに加えるメソッド
-    /// </summary>
-    /// <param name="force"> 力の値 </param>
-    public void TakeForce(Vector2 force)
+    private void IsGround()
     {
-        _plRigidbody.AddForce(force);
+        _onGround = _plGroundCheck.IsGround();
     }
 }

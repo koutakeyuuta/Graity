@@ -85,6 +85,8 @@ GameObject:
   - component: {fileID: 8881411535583488476}
   - component: {fileID: 3198851707022643443}
   - component: {fileID: 5117581117227522419}
+  - component: {fileID: 8567489803545314120}
+  - component: {fileID: 542256550972586739}
   - component: {fileID: 6145841336633528151}
   m_Layer: 0
   m_Name: Player
@@ -235,7 +237,32 @@ MonoBehaviour:
   colliderOffset: {x: 0, y: -0.1273639}
   groundCheckColliderOffset: {x: 0.8660666, y: 1.025272}
   groundCheck: {fileID: 8881411535503291830}
+  appearTime: 0.6
   destoryTime: 0.3
+--- !u!114 &8567489803545314120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881411535583488449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b6f5ee474923924482d4a8fdefddf8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &542256550972586739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8881411535583488449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d8c0ce6afa55204585635f7948ca2ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6145841336633528151
 MonoBehaviour:
   m_ObjectHideFlags: 0
