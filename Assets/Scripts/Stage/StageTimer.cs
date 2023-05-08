@@ -1,7 +1,7 @@
 using UnityEngine;
 
 /// <summary>
-/// ステージシーンのタイム、ベストタイムに関するクラス
+/// ステージのタイマーを制御するクラス
 /// </summary>
 public class StageTimer : MonoBehaviour
 {
@@ -55,11 +55,9 @@ public class StageTimer : MonoBehaviour
     {
         return bestTime;
     }
-
-    //ここから
+    
     public void AddTime()
     {
         clearTime += plusTime;
     }
-    //ここまで
 }

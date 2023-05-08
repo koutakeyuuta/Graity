@@ -26,47 +26,31 @@ public class PlayerAnimatorController : MonoBehaviour
     public void AnimParamSettings(bool isRunning, bool isFalling, bool dissapear)
     {
         // 走っているかのパラメーターをセットする
-        if (isRunning) SetRun();
-        if (!isRunning) SetNoRun();
+        SetIsRunning(isRunning);
 
         // 落ちているかのパラメーターをセットする
-        if (isFalling) SetFall();
-        if (!isFalling) SetNoFall();
+        SetIsFalling(isFalling);
 
         // 消滅フラグがtrueならパラメーターをセットする
         if (dissapear) SetDisapper();
     }
-
+    
     /// <summary>
-    /// 走っている状態にする
+    /// 走っているかのパラメーターをセットする
     /// </summary>
-    private void SetRun()
+    /// <param name="value"> 走っているか </param>
+    private void SetIsRunning(bool value)
     {
-        _plAnimator.SetBool("Run", true);
+        _plAnimator.SetBool("Run", value);
     }
-
+    
     /// <summary>
-    /// 走っていない状態にする
+    /// 落下中かのパラメーターをセットする
     /// </summary>
-    private void SetNoRun()
+    /// <param name="value"> 落下中か </param>
+    private void SetIsFalling(bool value)
     {
-        _plAnimator.SetBool("Run", false);
-    }
-
-    /// <summary>
-    /// 落ちている状態にする
-    /// </summary>
-    private void SetFall()
-    {
-        _plAnimator.SetBool("Fall", true);
-    }
-
-    /// <summary>
-    /// 落ちていない状態にする
-    /// </summary>
-    private void SetNoFall()
-    {
-        _plAnimator.SetBool("Fall", false);
+        _plAnimator.SetBool("Fall", value);
     }
 
     /// <summary>

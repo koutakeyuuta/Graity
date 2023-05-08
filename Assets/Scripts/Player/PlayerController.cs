@@ -11,10 +11,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool playStart = false;
     [Header("当たり判定のオフセット")]
     [SerializeField] private Vector2 colliderOffset;
-    [Header("接地判定のオフセット")]
-    [SerializeField] private Vector2 groundCheckColliderOffset;
-    [Header("接地判定")]
-    [SerializeField] private BoxCollider2D groundCheck;
     [Header("出現から行動可能になるまでの時間")]
     [SerializeField] private float appearTime;
     [Header("消滅までの時間")]
@@ -52,15 +48,17 @@ public class PlayerController : MonoBehaviour
         _plCollider = GetComponent<CapsuleCollider2D>();
         _plAnimator = GetComponent<Animator>();
         _plAnimController = GetComponent<PlayerAnimatorController>();
+        _plGroundCheck = GetComponent<GroundCheck>();
 
         colliderOffset = _plCollider.offset;
-        groundCheckColliderOffset = groundCheck.offset;
 
         Invoke(nameof(Appear), appearTime);
     }
 
     private void FixedUpdate()
     {
+        print(_plGroundCheck.GetIsGround());
+
         // 出現アニメーションが終了したら動けるようになる
         if (playStart)
         {
@@ -69,6 +67,10 @@ public class PlayerController : MonoBehaviour
             //縦移動
             MoveVertical();
         }
+
+        IsGround();
+        IsFalling();
+        _plAnimController.AnimParamSettings(_isRunning, _isFalling, _doDestroy);
     }
 
     /// <summary>
@@ -118,8 +120,6 @@ public class PlayerController : MonoBehaviour
             _plSpriteRenderer.flipY = false;
             // プレイヤーの当たり判定を画像に合わせる
             _plCollider.offset = new Vector2(colliderOffset.x, colliderOffset.y);
-            // 接地判定用当たり判定を下にする
-            groundCheck.offset = groundCheckColliderOffset;
         }
         // 重力が上向きの時
         if (_plRigidbody.gravityScale < 0)
@@ -128,8 +128,6 @@ public class PlayerController : MonoBehaviour
             _plSpriteRenderer.flipY = true;
             // プレイやの当たり判定を画像に合わせる
             _plCollider.offset = new Vector2(colliderOffset.x, -colliderOffset.y);
-            // 接地判定用当たり判定を上にする
-            groundCheck.offset = -groundCheckColliderOffset;
         }
     }
 
@@ -164,8 +162,13 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    private void IsFalling()
+    {
+        _isFalling = Mathf.Abs(_plRigidbody.velocity.y) > 0.0f;
+    }
+
     private void IsGround()
     {
-        _onGround = _plGroundCheck.IsGround();
+        _onGround = _plGroundCheck.GetIsGround();
     }
 }

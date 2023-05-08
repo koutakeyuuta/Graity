@@ -5,29 +5,29 @@ using UnityEngine;
 /// </summary>
 public class GroundCheck : MonoBehaviour
 {
+    [Header("地面判定のレイヤー")]
+    [SerializeField] private LayerMask groundLayer;
+
     // 接地状態
-    private bool onGround;
+    private bool _isGround;
 
     /// <summary>
     /// 接地状態を返す
     /// </summary>
     /// <returns> 接地状態 </returns>
-    public bool IsGround()
+    public bool GetIsGround()
     {
-        return onGround;
+        IsGround();
+        return _isGround;
     }
 
-    // 接地判定
-    private void OnTriggerEnter2D(Collider2D collision)
+    /// <summary>
+    /// 接地判定
+    /// </summary>
+    private void IsGround()
     {
-            onGround = true;
-    }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-            onGround = true;
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-            onGround = false;
+        _isGround = Physics2D.Linecast(transform.position,
+                                       transform.position - transform.up,
+                                       groundLayer);
     }
 }

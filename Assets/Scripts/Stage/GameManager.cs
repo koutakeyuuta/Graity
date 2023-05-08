@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StageTimer stageTimer;
 
     // フルーツを取得しているかどうか。
-    private bool[] collectedFruits = new bool[FruitsInfomation.FRUITSCOUNT];
+    private bool[] _collectedFruits = new bool[FruitsInfomation.FRUITSCOUNT];
 
     // ゴール後の処理を一回だけ実行するためだけの変数(良くない)
-    private bool goalMethodStop = true;
+    private bool _goalMethodStop = true;
 
     private void Start()
     {
@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         // 操作が入力されるとタイマースタート
         if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) 
-                      || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && goalMethodStop)
+                      || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && _goalMethodStop)
         {
             stageTimer.TimerStart();
         }
@@ -54,12 +54,12 @@ public class GameManager : MonoBehaviour
         for(int count = 0; count < Fruits_Object.Length; count++) 
         {
             // フルーツが消滅 and フルーツが取得されていれば(同じ処理を繰り返さないようにしている)
-            if(Fruits_Object[count] == null && !collectedFruits[count])
+            if(Fruits_Object[count] == null && !_collectedFruits[count])
             {
                 // フルーツUIを更新する。
                 stageUIController.FruitsUIDisplay(count);
                 // フルーツを取得したことを記憶する。
-                collectedFruits[count] = true;
+                _collectedFruits[count] = true;
 
                 // 制限時間追加
                 stageTimer.AddTime();
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
         }
 
         // ゴールしたときの処理
-        if (goalController.IsGoal()　&& goalMethodStop) StageClear();
+        if (goalController.IsGoal()　&& _goalMethodStop) StageClear();
 
         // ステージのクリアタイムUIを更新する
         stageUIController.TimeUIUpdate(stageTimer.ClearTime());
@@ -80,9 +80,9 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void FruitsCollectDelete()
     {
-        for(int fruitsNo = 0; fruitsNo < collectedFruits.Length; fruitsNo++)
+        for(int fruitsNo = 0; fruitsNo < _collectedFruits.Length; fruitsNo++)
         {
-            collectedFruits[fruitsNo] = false;
+            _collectedFruits[fruitsNo] = false;
         }
     }
 
@@ -92,13 +92,13 @@ public class GameManager : MonoBehaviour
     private void StageClear()
     {
         // ステージクリア後の処理を一回だけ実行するため(良くない)
-        goalMethodStop = false;
+        _goalMethodStop = false;
 
         // タイマーストップ。
         stageTimer.TimerStop();
 
         // ステージ状況を保存。
-        StageInfomation.StageSave(stageNo, stageTimer.ClearTime(), collectedFruits);
+        StageInfomation.StageSave(stageNo, stageTimer.ClearTime(), _collectedFruits);
 
         // ステージクリア後のUIを表示する。
         stageClearUI_Object.SetActive(true);

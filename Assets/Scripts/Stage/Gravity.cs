@@ -20,7 +20,7 @@ public class Gravity : MonoBehaviour
 
     private void ReverseGravity()
     {
-        if (!groundCheck.IsGround()) return;
+        if (!groundCheck.GetIsGround()) return;
         rb.gravityScale = -rb.gravityScale;
     }
 }
