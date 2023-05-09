@@ -21,8 +21,7 @@ public class GameManager : MonoBehaviour
     [Header("フルーツオブジェクト")]
     [SerializeField] private GameObject[] Fruits_Object;
 
-    [Header("ステージタイマー")]
-    [SerializeField] private StageTimer stageTimer;
+    private GameTimer _gameTimer;
 
     // フルーツを取得しているかどうか。
     private bool[] _collectedFruits = new bool[FruitsInfomation.FRUITSCOUNT];
@@ -44,11 +43,11 @@ public class GameManager : MonoBehaviour
         if((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.Space) 
                       || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)) && _goalMethodStop)
         {
-            stageTimer.TimerStart();
+            _gameTimer.TimerStart();
         }
 
         // 時間切れでリスタート
-        if (stageTimer.ClearTime() <= 0) RestartStage();
+        if (_gameTimer.ClearTime() <= 0) RestartStage();
 
         // 各フルーツが消滅したこと(取得された)を判定する。
         for(int count = 0; count < Fruits_Object.Length; count++) 
@@ -62,7 +61,7 @@ public class GameManager : MonoBehaviour
                 _collectedFruits[count] = true;
 
                 // 制限時間追加
-                stageTimer.AddTime();
+                _gameTimer.AddTime();
                 // 時間追加アニメーション
                 stageUIController.TimePlusAnimation();
             }
@@ -72,7 +71,7 @@ public class GameManager : MonoBehaviour
         if (goalController.IsGoal()　&& _goalMethodStop) StageClear();
 
         // ステージのクリアタイムUIを更新する
-        stageUIController.TimeUIUpdate(stageTimer.ClearTime());
+        stageUIController.TimeUIUpdate(_gameTimer.ClearTime());
     }
 
     /// <summary>
@@ -95,10 +94,10 @@ public class GameManager : MonoBehaviour
         _goalMethodStop = false;
 
         // タイマーストップ。
-        stageTimer.TimerStop();
+        _gameTimer.TimerStop();
 
         // ステージ状況を保存。
-        StageInfomation.StageSave(stageNo, stageTimer.ClearTime(), _collectedFruits);
+        StageInfomation.StageSave(stageNo, _gameTimer.ClearTime(), _collectedFruits);
 
         // ステージクリア後のUIを表示する。
         stageClearUI_Object.SetActive(true);

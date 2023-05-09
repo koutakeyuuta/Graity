@@ -3,22 +3,20 @@ using UnityEngine;
 /// <summary>
 /// ステージのタイマーを制御するクラス
 /// </summary>
-public class StageTimer : MonoBehaviour
+public class GameTimer : MonoBehaviour
 {
     //クリアタイムを格納する変数
-    private float clearTime = 30;
-    //ベストタイムを格納する変数
-    private readonly float bestTime;
+    private float timeLimit = 30;
     //タイマーのオンオフを切り替える変数
-    private bool timerSwitch = false;
+    private bool startSwitch = false;
     // 追加時間量
     private float plusTime = 5.0f;
 
     private void Update()
     {
-        if (timerSwitch)
+        if (startSwitch)
         {
-            clearTime -= Time.deltaTime;
+            timeLimit -= Time.deltaTime;
         }
     }
 
@@ -27,7 +25,7 @@ public class StageTimer : MonoBehaviour
     /// </summary>
     public void TimerStart()
     {
-        timerSwitch = true;
+        startSwitch = true;
     }
 
     /// <summary>
@@ -35,7 +33,7 @@ public class StageTimer : MonoBehaviour
     /// </summary>
     public void TimerStop()
     {
-        timerSwitch = false;
+        startSwitch = false;
     }
 
     /// <summary>
@@ -44,20 +42,14 @@ public class StageTimer : MonoBehaviour
     /// <returns>クリアタイム</returns>
     public float ClearTime()
     {
-        return clearTime;
-    }
-
-    /// <summary>
-    /// ベストタイムを返す
-    /// </summary>
-    /// <returns>ベストタイム</returns>
-    public float BestTime()
-    {
-        return bestTime;
+        return timeLimit;
     }
     
+    /// <summary>
+    /// 時間を追加する
+    /// </summary>
     public void AddTime()
     {
-        clearTime += plusTime;
+        timeLimit += plusTime;
     }
 }

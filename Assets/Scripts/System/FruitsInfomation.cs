@@ -1,9 +1,7 @@
-using UnityEngine;
-
 /// <summary>
 /// フルーツオブジェクトに関する情報をまとめたクラス
 /// </summary>
-public class FruitsInfomation : MonoBehaviour
+public class FruitsInfomation
 {
     //フルーツの個数
     public const int FRUITSCOUNT = 3;
