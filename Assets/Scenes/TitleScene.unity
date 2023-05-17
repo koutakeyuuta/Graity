@@ -473,7 +473,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 323258089730765893, guid: 8d2582b63465a9348ad119c4603d9806, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 323258089730765893, guid: 8d2582b63465a9348ad119c4603d9806, type: 3}
       propertyPath: m_LocalPosition.x
@@ -517,7 +517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 323258089730765894, guid: 8d2582b63465a9348ad119c4603d9806, type: 3}
       propertyPath: m_Name
-      value: Title
+      value: TitleLogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 323258089730765894, guid: 8d2582b63465a9348ad119c4603d9806, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d2582b63465a9348ad119c4603d9806, type: 3}
@@ -1572,7 +1576,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 149564100}
-  - component: {fileID: 149564099}
+  - component: {fileID: 149564101}
   m_Layer: 0
   m_Name: GameExitWindow
   m_TagString: Untagged
@@ -1580,18 +1584,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &149564099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 149564098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec317426019971f44b3d4b0da38882bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &149564100
 Transform:
   m_ObjectHideFlags: 0
@@ -1610,8 +1602,22 @@ Transform:
   - {fileID: 306030855}
   - {fileID: 1562500944}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &149564101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 149564098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec317426019971f44b3d4b0da38882bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prevWindow: {fileID: 314896060}
+  nextWindows: []
 --- !u!1 &158792381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,8 +1787,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 314896060}
-        m_TargetAssemblyTypeName: TitleCommand, Assembly-CSharp
-        m_MethodName: PushStageSelect
+        m_TargetAssemblyTypeName: TitleWindow, Assembly-CSharp
+        m_MethodName: LoadStageSelectScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2994,7 +3000,7 @@ GameObject:
   - component: {fileID: 234145306}
   - component: {fileID: 234145305}
   m_Layer: 0
-  m_Name: DeleteDate_canvas
+  m_Name: GameExit_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3304,107 +3310,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!1 &270359581
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 270359582}
-  - component: {fileID: 270359585}
-  - component: {fileID: 270359584}
-  - component: {fileID: 270359583}
-  m_Layer: 5
-  m_Name: PlayManualCloase_canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &270359582
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270359581}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.009259259, y: 0.009259259, z: 0.009259259}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1033613370}
-  m_Father: {fileID: 1333013084}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &270359583
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270359581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &270359584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270359581}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
---- !u!223 &270359585
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270359581}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 1309520939}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 1018201333
-  m_SortingOrder: 15
-  m_TargetDisplay: 0
 --- !u!1 &306030854
 GameObject:
   m_ObjectHideFlags: 0
@@ -3621,7 +3526,7 @@ Transform:
   m_Children:
   - {fileID: 695262968}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &314896060
 MonoBehaviour:
@@ -3635,9 +3540,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4180ebc0734907249b5ede6cec27374f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PlayManualWindow: {fileID: 1333013083}
-  ConfigWindow: {fileID: 1823017817}
-  GameExitWindow: {fileID: 149564098}
+  prevWindow: {fileID: 0}
+  nextWindows:
+  - {fileID: 1333013085}
+  - {fileID: 1823017819}
+  - {fileID: 149564101}
 --- !u!1 &319855358
 GameObject:
   m_ObjectHideFlags: 0
@@ -4246,9 +4153,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1823017819}
-        m_TargetAssemblyTypeName: ConfigWindowController, Assembly-CSharp
-        m_MethodName: OpenDataDeleteWindow
+      - m_Target: {fileID: 1059870769}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4891,7 +4798,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &441805409
 MonoBehaviour:
@@ -5108,9 +5015,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 314896060}
-        m_TargetAssemblyTypeName: TitleCommand, Assembly-CSharp
-        m_MethodName: PushConfig
+      - m_Target: {fileID: 1823017819}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5830,7 +5737,7 @@ GameObject:
   - component: {fileID: 547235513}
   - component: {fileID: 547235512}
   m_Layer: 0
-  m_Name: CreditClose_button
+  m_Name: DeleteDateClose_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6366,8 +6273,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1927286431}
-        m_TargetAssemblyTypeName: CreditWindowController, Assembly-CSharp
-        m_MethodName: CloseCreditWindow
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6595,7 +6502,7 @@ GameObject:
   - component: {fileID: 596644579}
   - component: {fileID: 596644578}
   m_Layer: 0
-  m_Name: Delete_text
+  m_Name: GameExit_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11009,7 +10916,7 @@ GameObject:
   - component: {fileID: 815782842}
   - component: {fileID: 815782841}
   m_Layer: 0
-  m_Name: CreditClose_button
+  m_Name: GameExitClose_button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11079,9 +10986,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 149564099}
-        m_TargetAssemblyTypeName: GameExitWindow, Assembly-CSharp
-        m_MethodName: CloseGameExitWindow
+      - m_Target: {fileID: 149564101}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11382,7 +11289,7 @@ GameObject:
   - component: {fileID: 830433544}
   - component: {fileID: 830433543}
   m_Layer: 0
-  m_Name: CreditClose_canvas
+  m_Name: DeleteDateClose_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12921,9 +12828,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 149564099}
-        m_TargetAssemblyTypeName: GameExitWindow, Assembly-CSharp
-        m_MethodName: CloseGameExitWindow
+      - m_Target: {fileID: 149564101}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13426,8 +13333,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1059870769}
-        m_TargetAssemblyTypeName: DeleteDateWindow, Assembly-CSharp
-        m_MethodName: CloseDeleteDateWindow
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13635,9 +13542,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 314896060}
-        m_TargetAssemblyTypeName: TitleCommand, Assembly-CSharp
-        m_MethodName: PushPlayManual
+      - m_Target: {fileID: 1333013085}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14108,139 +14015,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 854992787548286511, guid: 642d2232a218a294fbf09eac8f6e5d7b, type: 3}
   m_PrefabInstance: {fileID: 1025956853}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1033613369
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1033613370}
-  - component: {fileID: 1033613373}
-  - component: {fileID: 1033613372}
-  - component: {fileID: 1033613371}
-  m_Layer: 5
-  m_Name: PlayManualClose_button
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1033613370
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033613369}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 270359582}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1920, y: 1080}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1033613371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033613369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 0
-  m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_SelectedTrigger: Selected
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 1033613372}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1333013085}
-        m_TargetAssemblyTypeName: PlayManualWindowManager, Assembly-CSharp
-        m_MethodName: CloseManualWindow
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &1033613372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033613369}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.15686275}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1033613373
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1033613369}
-  m_CullTransparentMesh: 1
 --- !u!1 &1035434353
 GameObject:
   m_ObjectHideFlags: 0
@@ -14525,7 +14299,7 @@ Transform:
   - {fileID: 830433542}
   - {fileID: 481238360}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1059870769
 MonoBehaviour:
@@ -14539,6 +14313,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9db69487606c77140b3446a767734c97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevWindow: {fileID: 1823017819}
+  nextWindows: []
   ConfigWindow: {fileID: 1823017817}
   DeleteCompletionWindow: {fileID: 481238359}
 --- !u!1 &1061350268
@@ -15579,9 +15355,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 314896060}
-        m_TargetAssemblyTypeName: TitleCommand, Assembly-CSharp
-        m_MethodName: PushGameExit
+      - m_Target: {fileID: 149564101}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17148,8 +16924,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1823017819}
-        m_TargetAssemblyTypeName: ConfigWindowController, Assembly-CSharp
-        m_MethodName: CloseConfigWindow
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17262,7 +17038,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1259037093
 PrefabInstance:
@@ -18401,9 +18177,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1823017819}
-        m_TargetAssemblyTypeName: ConfigWindowController, Assembly-CSharp
-        m_MethodName: OpenCreditWindow
+      - m_Target: {fileID: 1927286431}
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: OpenWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -18482,9 +18258,8 @@ Transform:
   m_Children:
   - {fileID: 1931804000}
   - {fileID: 1664824995}
-  - {fileID: 270359582}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1333013085
 MonoBehaviour:
@@ -18498,6 +18273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed5d4827ba69524448cf698b417dc6e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevWindow: {fileID: 314896060}
+  nextWindows: []
   Manuals:
   - {fileID: 1931803999}
   - {fileID: 1664824994}
@@ -18975,7 +18752,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7D42\u4E86"
+  m_Text: "\u306F\u3044"
 --- !u!222 &1408820366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -19668,9 +19445,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 149564099}
+      - m_Target: {fileID: 149564101}
         m_TargetAssemblyTypeName: GameExitWindow, Assembly-CSharp
-        m_MethodName: GameExit
+        m_MethodName: Exit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21121,7 +20898,7 @@ GameObject:
   - component: {fileID: 1562500946}
   - component: {fileID: 1562500945}
   m_Layer: 0
-  m_Name: CreditClose_canvas
+  m_Name: GameExitClose_canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21430,7 +21207,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AF\u30EA\u30C3\u30AF\u3067\u9589\u3058\u308B"
+  m_Text: "Enter\u3067\u9589\u3058\u308B"
 --- !u!222 &1608907535
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24451,8 +24228,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1823017819}
-        m_TargetAssemblyTypeName: ConfigWindowController, Assembly-CSharp
-        m_MethodName: CloseConfigWindow
+        m_TargetAssemblyTypeName: BaseWindow, Assembly-CSharp
+        m_MethodName: CloseWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -25093,7 +24870,7 @@ Transform:
   - {fileID: 1831788448}
   - {fileID: 2118184189}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1823017819
 MonoBehaviour:
@@ -25107,9 +24884,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e4b86974b2831645b65e74c24fe91b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevWindow: {fileID: 314896060}
+  nextWindows:
+  - {fileID: 1927286431}
+  - {fileID: 1059870769}
   VolumeSlider: {fileID: 236366992}
-  CreditWindow: {fileID: 1927286429}
-  DataDeleteWindow: {fileID: 1059870767}
 --- !u!1 &1826980896
 GameObject:
   m_ObjectHideFlags: 0
@@ -25652,7 +25431,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1059870769}
         m_TargetAssemblyTypeName: DeleteDateWindow, Assembly-CSharp
-        m_MethodName: DeleteDate
+        m_MethodName: CompleteDeleteDate
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -26060,7 +25839,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927286429}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -26073,7 +25852,7 @@ Transform:
   - {fileID: 1983245554}
   - {fileID: 1288655587}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1927286431
 MonoBehaviour:
@@ -26087,6 +25866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 024105c4040e36e4cbe3fc478880ff8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prevWindow: {fileID: 1823017819}
+  nextWindows: []
 --- !u!1 &1931803999
 GameObject:
   m_ObjectHideFlags: 0
@@ -26726,7 +26507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u30AF\u30EA\u30C3\u30AF\u3067\u6B21\u3078"
+  m_Text: "Enter\u3067\u6B21\u3078"
 --- !u!222 &1958406873
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -27813,7 +27594,7 @@ Transform:
   - {fileID: 1476841485}
   - {fileID: 500215629}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2094972039
 PrefabInstance:

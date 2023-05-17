@@ -5,8 +5,10 @@ using UnityEngine;
 /// </summary>
 public class Gravity : MonoBehaviour
 {
-    Rigidbody2D rb;
+    [Header("ê⁄ínîªíË")]
     [SerializeField] private GroundCheck groundCheck;
+
+    private Rigidbody2D rb;
 
     void Start()
     {
@@ -18,6 +20,9 @@ public class Gravity : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space)) ReverseGravity();
     }
 
+    /// <summary>
+    /// èdóÕÇîΩì]Ç≥ÇπÇÈ
+    /// </summary>
     private void ReverseGravity()
     {
         if (!groundCheck.GetIsGround()) return;

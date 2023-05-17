@@ -1,17 +1,26 @@
 using UnityEngine;
 
 /// <summary>
-/// 遊び方ポップアップの制御
+/// 遊び方画面を表示し、スライドを管理するクラス
 /// </summary>
-public class PlayManualWindowManager : MonoBehaviour
+public class PlayManualWindow : BaseWindow
 {
-    [Header("マニュアル"), SerializeField] private GameObject[] Manuals;
+    [Header("遊び方のスライド")]
+    [SerializeField] private GameObject[] Manuals;
 
-    //現在表示されているマニュアルの番号
+    //現在表示されているスライドの番号
     private int currentManual = 0;
 
+    private void Update()
+    {
+        // エンターキーで次のスライドへ
+        if (Input.GetKeyDown(KeyCode.Return)) { PushNextManualButton(); }
+        // エスケープキーで画面を閉じる
+        if (Input.GetKeyDown(KeyCode.Escape)) { CloseWindow(); }
+    }
+
     /// <summary>
-    /// 次のマニュアルが存在するか
+    /// 次のスライドが存在するか
     /// </summary>
     /// <returns>存在していればtrueを返す</returns>
     private bool CanNextManual()
@@ -20,13 +29,13 @@ public class PlayManualWindowManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 次のマニュアルを表示する
+    /// 次のスライドを表示する
     /// </summary>
     public void PushNextManualButton()
     {
         if (!CanNextManual())
         {
-            CloseManualWindow();
+            CloseWindow();
             return;
         }
 
@@ -35,7 +44,7 @@ public class PlayManualWindowManager : MonoBehaviour
     }
 
     /// <summary>
-    /// マニュアルの表示状態を更新する
+    /// スライドの表示状態を更新する
     /// </summary>
     private void CurrenManualActive()
     {
@@ -47,11 +56,11 @@ public class PlayManualWindowManager : MonoBehaviour
     }
 
     /// <summary>
-    /// マニュアルウィンドウを閉じる
+    /// 遊び方画面を閉じる
     /// </summary>
-    public void CloseManualWindow()
+    public override void CloseWindow()
     {
-        gameObject.SetActive(false);
+        base.CloseWindow();
         currentManual = 0;
         CurrenManualActive();
     }

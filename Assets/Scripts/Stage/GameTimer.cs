@@ -5,9 +5,9 @@ using UnityEngine;
 /// </summary>
 public class GameTimer : MonoBehaviour
 {
-    //クリアタイムを格納する変数
+    // 現在のタイムを格納する変数
     private float timeLimit = 30;
-    //タイマーのオンオフを切り替える変数
+    // タイマーのオンオフを切り替える変数
     private bool startSwitch = false;
     // 追加時間量
     private float plusTime = 5.0f;
@@ -40,7 +40,7 @@ public class GameTimer : MonoBehaviour
     /// 現在のタイムを返す
     /// </summary>
     /// <returns>クリアタイム</returns>
-    public float ClearTime()
+    public float TimeLimit()
     {
         return timeLimit;
     }

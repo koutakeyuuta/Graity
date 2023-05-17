@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2176814759329370764}
+  - component: {fileID: 1764746762142935906}
   m_Layer: 0
   m_Name: Warp
   m_TagString: Untagged
@@ -28,11 +29,25 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1087761148627843639}
   - {fileID: 4700350506885927404}
+  - {fileID: 1087761148627843639}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1764746762142935906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429155780442546506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dc82c62c501ebe409f3e997ac61bce7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  warpZone1: {fileID: 4700350506885927401}
+  warpZone2: {fileID: 1087761148627843634}
 --- !u!1001 &3457359984466004207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46,19 +61,19 @@ PrefabInstance:
       objectReference: {fileID: 1087761148627843634}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.77946854
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.17275184
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.023796318
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -90,9 +105,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253702, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_Name
-      value: WarpHole
+      value: WarpHole1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5878708623078541700, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
 --- !u!1 &4700350506885927401 stripped
 GameObject:
@@ -125,19 +141,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.378859
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.44254288
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.023796318
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253699, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -169,13 +185,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7980938704040253702, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_Name
-      value: WarpHole (1)
+      value: WarpHole2
       objectReference: {fileID: 0}
     - target: {fileID: 7994796715242683681, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5878708623078541700, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 73a4002b991bf7c43b9bc7f7e28520a0, type: 3}
 --- !u!1 &1087761148627843634 stripped
 GameObject:

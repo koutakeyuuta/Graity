@@ -67,7 +67,6 @@ public class MoveLift : MonoBehaviour
             if (Reverse) vect = 1;
             if (!Reverse) vect = -1; 
             playerGetForce.GetForce(new Vector2(50.0f * vect, 0.0f));
-            print(true);
         }
     }
 }

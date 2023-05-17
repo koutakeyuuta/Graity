@@ -12,7 +12,7 @@ public class BestTime
     public BestTime(int stageNo)
     {
         _stageNo = stageNo;
-        _bestTime = StageInfomation.stageBestTime[stageNo];
+        _bestTime = StageInfomation.stageBestTime[_stageNo];
     }
 
     /// <summary>

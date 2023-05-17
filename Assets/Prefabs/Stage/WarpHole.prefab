@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7980938704040253700}
   - component: {fileID: 7980938704040253701}
   - component: {fileID: 7994796715242683681}
-  - component: {fileID: 5878708623078541700}
+  - component: {fileID: 6655180776091049828}
   m_Layer: 0
   m_Name: WarpHole
   m_TagString: Untagged
@@ -123,7 +123,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.813775
---- !u!114 &5878708623078541700
+--- !u!114 &6655180776091049828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,9 +132,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 7980938704040253702}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dc82c62c501ebe409f3e997ac61bce7, type: 3}
+  m_Script: {fileID: 11500000, guid: b76369dff5f256346964f960012b44fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exit: {fileID: 0}
-  player: {fileID: 0}
-  col: {fileID: 7994796715242683681}

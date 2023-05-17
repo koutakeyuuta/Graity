@@ -8,8 +8,6 @@ public class PlayerAnimatorController : MonoBehaviour
     // pl, Pl = Player
     // プレイヤーのアニメーターコンポーネント
     private Animator _plAnimator;
-    // プレイヤーのRigidbody
-    private Rigidbody2D _plRigidbody;
 
     private void Start()
     {
@@ -45,12 +43,12 @@ public class PlayerAnimatorController : MonoBehaviour
     }
     
     /// <summary>
-    /// 落下中かのパラメーターをセットする
+    /// 接地中かのパラメーターをセットする
     /// </summary>
     /// <param name="value"> 落下中か </param>
     private void SetIsFalling(bool value)
     {
-        _plAnimator.SetBool("Fall", value);
+        _plAnimator.SetBool("Ground", value);
     }
 
     /// <summary>

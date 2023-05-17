@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float destoryTime;
 
     // 接地してるか
-    private bool _onGround = false;
+    private bool _isGround = false;
     // 走っているか
     private bool _isRunning = false;
     // 落下しているか
@@ -57,20 +57,28 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print(_plGroundCheck.GetIsGround());
-
         // 出現アニメーションが終了したら動けるようになる
         if (playStart)
         {
             //横移動
             MoveHorizontal();
-            //縦移動
-            MoveVertical();
         }
+        //縦移動
+        MoveVertical();
 
         IsGround();
         IsFalling();
-        _plAnimController.AnimParamSettings(_isRunning, _isFalling, _doDestroy);
+        _plAnimController.AnimParamSettings(_isRunning, _isGround, _doDestroy);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        //ゴールしたら消滅アニメーションを再生する
+        if (collision.tag == "Goal")
+        {
+            _doDestroy = true;
+            Invoke(nameof(Disapper), destoryTime);
+        }
     }
 
     /// <summary>
@@ -114,31 +122,35 @@ public class PlayerController : MonoBehaviour
     private void MoveVertical()
     {
         // 重力が下向きの時
-        if (_plRigidbody.gravityScale >= 0)
-        {
-            // キャラクター画像の足を下に向けるため、反転をオフにする
-            _plSpriteRenderer.flipY = false;
-            // プレイヤーの当たり判定を画像に合わせる
-            _plCollider.offset = new Vector2(colliderOffset.x, colliderOffset.y);
-        }
+        if (_plRigidbody.gravityScale >= 0) GravityStateDown();
         // 重力が上向きの時
-        if (_plRigidbody.gravityScale < 0)
-        {
-            // キャラクター画像の足を上に向けるため、反転させる
-            _plSpriteRenderer.flipY = true;
-            // プレイやの当たり判定を画像に合わせる
-            _plCollider.offset = new Vector2(colliderOffset.x, -colliderOffset.y);
-        }
+        if (_plRigidbody.gravityScale < 0) GravityStateUp();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    /// <summary>
+    /// 重力が下向きの時の処理
+    /// </summary>
+    private void GravityStateDown()
     {
-        //ゴールしたら消滅アニメーションを再生する
-        if (collision.tag == "Goal")
-        {
-            _doDestroy = true;
-            Invoke(nameof(Disapper), destoryTime);
-        }
+        // キャラクター画像の足を下に向けるため、反転をオフにする
+        _plSpriteRenderer.flipY = false;
+        // プレイヤーの当たり判定を画像に合わせる
+        _plCollider.offset = new Vector2(colliderOffset.x, colliderOffset.y);
+        // 接地判定を下向きにする
+        _plGroundCheck.ReverseColliderOffset(true);
+    }
+     
+    /// <summary>
+    /// 重力が上向きの時の処理
+    /// </summary>
+    private void GravityStateUp()
+    {
+        // キャラクター画像の足を上に向けるため、反転させる
+        _plSpriteRenderer.flipY = true;
+        // プレイやの当たり判定を画像に合わせる
+        _plCollider.offset = new Vector2(colliderOffset.x, -colliderOffset.y);
+        // 接地判定を上向きにする
+        _plGroundCheck.ReverseColliderOffset(false);
     }
 
     /// <summary>
@@ -162,13 +174,19 @@ public class PlayerController : MonoBehaviour
         Destroy(gameObject);
     }
 
+    /// <summary>
+    /// 落下中か
+    /// </summary>
     private void IsFalling()
     {
         _isFalling = Mathf.Abs(_plRigidbody.velocity.y) > 0.0f;
     }
 
+    /// <summary>
+    /// 接地中か
+    /// </summary>
     private void IsGround()
     {
-        _onGround = _plGroundCheck.GetIsGround();
+        _isGround = _plGroundCheck.GetIsGround();
     }
 }

@@ -953,7 +953,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3907470699255109288}
-  - component: {fileID: 1052873099}
+  - component: {fileID: 7334016962954696168}
+  - component: {fileID: 2571633446010364262}
   m_Layer: 0
   m_Name: UI
   m_TagString: Untagged
@@ -980,7 +981,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1052873099
+--- !u!114 &7334016962954696168
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -989,12 +990,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 3907470699255109289}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0abe8c4b66e06f542976e977e5ac0d62, type: 3}
+  m_Script: {fileID: 11500000, guid: 019b194961bde314fbf0916b3f4e55f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FruitsUI_spriteRenderer:
-  - {fileID: 3907470698427969239}
-  - {fileID: 3907470698819603538}
-  - {fileID: 3907470698653226174}
-  time_text: {fileID: 3907470698090494639}
-  bestTime_text: {fileID: 3907470699254231951}
+  stageNo: 0
+  timeText: {fileID: 3907470698090494639}
+  bestTimeText: {fileID: 3907470699254231951}
+  FruitsSprite:
+  - {fileID: 3907470698427969232}
+  - {fileID: 3907470698819603539}
+  - {fileID: 3907470698653226175}
+  fruitsManager: {fileID: 0}
+  gameTimer: {fileID: 2571633446010364262}
+--- !u!114 &2571633446010364262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3907470699255109289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac532ba600929214d8d7448c64aa3db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
