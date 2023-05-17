@@ -2,8 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// BGMを再生するオブジェクトがシーンを遷移しても消滅しないようにする。
-/// あんまり気に食わないからもっといい方法がないかを探してください。
-/// 理屈もよくわからず使ってます。
+/// あんまり気に食わないのでもっといい方法がないかを探してください。
 /// </summary>
 public class DontDestroySingleObject : MonoBehaviour
 {

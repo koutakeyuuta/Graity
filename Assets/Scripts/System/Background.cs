@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Background : MonoBehaviour
+public class BackGround : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
